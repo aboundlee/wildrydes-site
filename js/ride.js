@@ -18,16 +18,11 @@ WildRydes.map = WildRydes.map || {};
     function requestUnicorn(pickupLocation) {
         $.ajax({
             method: 'POST',
-            url: _config.api.invokeUrl + '/ride',
-            headers: {
-                Authorization: authToken
-            },
-            data: JSON.stringify({
-                PickupLocation: {
-                    Latitude: pickupLocation.latitude,
-                    Longitude: pickupLocation.longitude
-                }
-            }),
+            url: "https://a05ihnlggf.execute-api.ap-northeast-1.amazonaws.com/dev/",
+  
+            data: JSON.stringify(
+                {query: 'mutation { createLog(log: "aboundlee3@gmail.com") }'}
+            ),
             contentType: 'application/json',
             success: completeRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
